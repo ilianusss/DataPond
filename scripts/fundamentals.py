@@ -4,6 +4,7 @@ import yfinance as yf
 from pathlib import Path
 import json
 import time
+import sys
 from datetime import datetime
 
 SEC_EDGAR_BASE_URL = "https://data.sec.gov/api/xbrl/companyfacts"
