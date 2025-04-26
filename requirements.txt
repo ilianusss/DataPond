@@ -8,14 +8,9 @@ yfinance>=0.2
 # SQL engine on Parquet files
 duckdb>=0.7
 
-# Pipeline
-prefect>=2.0
-
 # Dashboard
 streamlit>=1.20
+plotly>=5.0
 
 # HTTP requests
 requests>=2.28
-
-# Unit testing
-pytest>=7.0

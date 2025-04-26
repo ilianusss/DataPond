@@ -9,7 +9,7 @@ from datetime import datetime
 
 SEC_EDGAR_BASE_URL = "https://data.sec.gov/api/xbrl/companyfacts"
 HEADERS = {
-    "User-Agent": "MiniDataLake/1.0 (chevalinn1@gmail.com)",
+    "User-Agent": "DataPond/1.1 (youradress@gmail.com)",
     "Accept": "application/json"
 }
 
