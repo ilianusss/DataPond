@@ -60,68 +60,6 @@ def hide_anchor_links():
 def main() -> None:
     hide_anchor_links()
    
-    # Theme toggle
-    toggle_theme = st.query_params.get('toggle_theme', None)
-    
-    if toggle_theme:
-        config_path = Path(".streamlit/config.toml")
-        if config_path.exists():
-            config_text = config_path.read_text()
-            is_dark_mode = "backgroundColor=\"#0E1117\"" in config_text
-        else:
-            is_dark_mode = False
-            
-        if toggle_theme == "true":
-            if is_dark_mode:
-                config_content = '''[theme]
-primaryColor="#FF4B4B"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
-textColor="#262730"
-font="sans serif"'''
-            else:
-                config_content = '''[theme]
-primaryColor="#FF4B4B"
-backgroundColor="#0E1117"
-secondaryBackgroundColor="#262730"
-textColor="#FAFAFA"
-font="sans serif"'''
-            
-            config_path.write_text(config_content)
-        
-        # Clear URL parameter and refresh
-        st.query_params.clear()
-        st.rerun()
-    
-    # Determine current theme
-    config_path = Path(".streamlit/config.toml")
-    if config_path.exists():
-        config_text = config_path.read_text()
-        is_dark_mode = "backgroundColor=\"#0E1117\"" in config_text
-    else:
-        is_dark_mode = False
-    
-    # Theme toggle button
-    cols = st.columns([19, 1])
-    with cols[1]:
-        icon = "☀️" if is_dark_mode else "🌙"
-        
-        # Link to toggle theme
-        st.markdown(f'''
-        <a href="?toggle_theme=true" target="_self" style="text-decoration:none;">
-            <div style="
-                width: 35px; 
-                height: 35px; 
-                border-radius: 50%; 
-                display: flex; 
-                align-items: center; 
-                justify-content: center; 
-                font-size: 20px;
-                cursor: pointer;
-                ">{icon}</div>
-        </a>
-        ''', unsafe_allow_html=True)
-    
     st.title("Financial Data Pond")
     
     # Get list of tickers
